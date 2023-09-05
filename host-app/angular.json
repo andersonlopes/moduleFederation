@@ -13,9 +13,6 @@
 				"build": {
 					"builder": "ngx-build-plus:browser",
 					"options": {
-						"customWebpackConfig": {
-							"path": "./webpack.config.js"
-						},
 						"outputPath": "dist/host-app",
 						"index": "src/index.html",
 						"main": "src/main.ts",
