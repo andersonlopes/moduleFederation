@@ -1,21 +1,15 @@
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const { shareAll, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
 
-module.exports = {
-  // ... outras configurações
+module.exports = withModuleFederationPlugin({
 
-  plugins: [
-    new ModuleFederationPlugin({
-        name: 'remoteapp',
-        filename: "remoteEntry.js",
-        exposes:{
-          './Module': './src/app/app.module.ts'
-        }
-        // shared:{
-        //   "@angular/core": { singleton: true, strictVersion: true }, 
-        //   "@angular/common": { singleton: true, strictVersion: true }, 
-        //   "@angular/router": { singleton: true, strictVersion: true },
-        // }
-        
-    }),
-  ],
-};
+  name: 'remoteapp',
+
+  exposes: {
+    './FlightModule': './src/app/flights/flight.module.ts',
+  },
+
+  shared: {
+    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+  },
+
+});
