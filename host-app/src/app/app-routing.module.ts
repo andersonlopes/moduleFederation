@@ -16,7 +16,7 @@ const appRoutes: Routes = [
         type: 'module',
         remoteEntry: 'http://localhost:4201/remoteEntry.js',
         exposedModule: './FlightModule',
-      }).then((m) => m.FlightModule),
+      }).then((m) => m.AppModule),
   },
   // {
   //   path: 'remote',

@@ -5,7 +5,7 @@ module.exports = withModuleFederationPlugin({
   name: 'remoteapp',
 
   exposes: {
-    './FlightModule': './src/app/flights/flight.module.ts',
+    './FlightModule': './src/app/app.module.ts',
   },
 
   shared: {
